@@ -56,12 +56,15 @@ public class Start {
 //        Имеется массив строк, в каждой из которых лежит набор из 5 строк, разделенных пробелом, найдите среди всех слов самое длинное, если таких слов несколько, получите любое из них
         String[] strings = {"dsvds vrver verre", "wfwgergerger rgfreg rgeer", "reg"};
         String wordMax = "";
-        for(String str: strings){
-            String[] words = str.split(" ");
+//        for(String str: strings){
+//            String[] words = str.split(" ");
 
-            Arrays.sort(words, Comparator.comparing(String::length, Comparator.reverseOrder()));
-            wordMax = words[0].length() > wordMax.length() ? words[0] : wordMax;
-        }
+//            Arrays.sort(words, Comparator.comparing(String::length, Comparator.reverseOrder()));
+//            wordMax = words[0].length() > wordMax.length() ? words[0] : wordMax;
+//        }
+//        System.out.println(wordMax);
+        wordMax = String.valueOf(Arrays.stream(Arrays.stream(strings).collect(Collectors.joining(" ")).split(" ")).max(Comparator.comparing(String::length)));
+//        System.out.println(String.join(" ", strings));
         System.out.println(wordMax);
     }
 }
