@@ -63,7 +63,10 @@ public class Start {
 //            wordMax = words[0].length() > wordMax.length() ? words[0] : wordMax;
 //        }
 //        System.out.println(wordMax);
-        wordMax = String.valueOf(Arrays.stream(Arrays.stream(strings).collect(Collectors.joining(" ")).split(" ")).max(Comparator.comparing(String::length)));
+//        wordMax = String.valueOf(Arrays.stream(Arrays.stream(strings).collect(Collectors.joining(" ")).split(" ")).max(Comparator.comparing(String::length)));
+        wordMax = Arrays.stream(strings)
+                .flatMap(str -> Arrays.stream(str.split(" ")))
+                .max(Comparator.comparing(String::length)).toString();
 //        System.out.println(String.join(" ", strings));
         System.out.println(wordMax);
     }
